@@ -2,7 +2,7 @@ package order.management.service;
 
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import order.management.model.Order;
 import order.management.model.OrderStatus;
@@ -10,10 +10,10 @@ import order.management.repository.OrderRepository;
 
 @Service
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @Override
     public Order placeOrder(Order order) {

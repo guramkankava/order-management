@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import order.management.exception.ApiException;
 import order.management.mapper.OrderPayloadMapper;
@@ -20,15 +19,14 @@ import order.management.payload.OrderPayload;
 import order.management.service.OrderService;
 
 @Slf4j
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(path = "/orders")
 @RestController
 public class OrderController {
 
-    private OrderService orderService;
+    private final OrderService orderService;
 
-    private OrderPayloadMapper orderMapper;
+    private final OrderPayloadMapper orderMapper;
 
     @GetMapping
     public OrderPayload get() {

@@ -4,7 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import order.management.model.Order;
 import order.management.model.OrderType;
@@ -17,11 +17,11 @@ import order.management.repository.OrderRepository;
 )
 @Component
 @Slf4j
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class InitialDataProvider implements CommandLineRunner {
 
-    private OrderService orderService;
-    private OrderRepository orderRepository;
+    private final OrderService orderService;
+    private final OrderRepository orderRepository;
 
     @Override
     public void run(String... args) throws Exception {

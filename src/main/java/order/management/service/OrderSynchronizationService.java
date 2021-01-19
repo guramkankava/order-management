@@ -9,7 +9,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import order.management.model.Order;
 import order.management.model.OrderStatus;
@@ -18,13 +18,13 @@ import order.management.repository.OrderRepository;
 
 @Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderSynchronizationService {
 
-    // private static final long HALF_HOURE = ((1000 * 60) * 30);
-    private static final long HALF_HOURE = ((1000 * 60) * 2);
+     private static final long HALF_HOURE = ((1000 * 60) * 30);
+//    private static final long HALF_HOURE = ((1000 * 60) * 2);
 
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @Scheduled(fixedDelay = HALF_HOURE, initialDelay = 1000 * 10)
     public void initOrderSynchronization() {

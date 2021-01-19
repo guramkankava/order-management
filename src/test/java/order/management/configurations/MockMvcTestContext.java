@@ -8,6 +8,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import order.management.mapper.OrderPayloadMapper;
 import order.management.service.OrderService;
 
 @ComponentScan(lazyInit = true)
@@ -22,6 +23,11 @@ public class MockMvcTestContext {
     @Bean
     public OrderService orderService() {
         return Mockito.mock(OrderService.class);
+    }
+
+    @Bean
+    public OrderPayloadMapper orderPayloadMapper() {
+        return Mockito.mock(OrderPayloadMapper.class);
     }
 
     @Bean
