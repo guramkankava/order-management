@@ -26,7 +26,7 @@ Project provides docker-compose.yml file, for convenience to start application w
 
 In order to start application without downloading the mongo database, navigate to project root and issue command
 
-## docker-compose up;
+## docker-compose up
 
 In order to stop the application, navigate to project root and issue command 
 
