@@ -28,4 +28,6 @@ In order to start application without downloading the mongo database, navigate t
 
 ## docker-compose up;
 
-In order to stop the application, navigate to project root and issue command ##docker-compose stop
+In order to stop the application, navigate to project root and issue command 
+
+## docker-compose stop
