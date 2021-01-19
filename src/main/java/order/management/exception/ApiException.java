@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @JsonIgnoreProperties(value = {"cause", "stackTrace", "messageCode", "params", "suppressed", "localizedMessage"})
 @Builder
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class ApiException extends RuntimeException {
 

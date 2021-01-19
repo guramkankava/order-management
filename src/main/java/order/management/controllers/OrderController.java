@@ -3,12 +3,15 @@ package order.management.controllers;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import order.management.exception.ApiException;
 import order.management.mapper.OrderPayloadMapper;
 import order.management.model.Order;
@@ -16,7 +19,9 @@ import order.management.model.OrderType;
 import order.management.payload.OrderPayload;
 import order.management.service.OrderService;
 
+@Slf4j
 @AllArgsConstructor
+@NoArgsConstructor
 @RequestMapping(path = "/orders")
 @RestController
 public class OrderController {
@@ -25,7 +30,15 @@ public class OrderController {
 
     private OrderPayloadMapper orderMapper;
 
-    @PostMapping(path = "/phone")
+    @GetMapping
+    public OrderPayload get() {
+        log.info("Get reached");
+        OrderPayload op = new OrderPayload();
+        op.setPersonalNumber("599515433");
+        return op;
+    }
+
+    @PostMapping(path = "/mobile")
     public OrderPayload placePhoneBalanceTopuOrder(@Valid  @RequestBody OrderPayload orderPayload) {
         if(orderPayload.isPhoneNumberBlank()) {
             throw new ApiException("Phone number is a mandatory field", HttpStatus.BAD_REQUEST, "mandatory.field", new String [] {"phoneNumber"});

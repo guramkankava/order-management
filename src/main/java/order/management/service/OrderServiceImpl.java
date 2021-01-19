@@ -8,8 +8,8 @@ import order.management.model.Order;
 import order.management.model.OrderStatus;
 import order.management.repository.OrderRepository;
 
-@Slf4j
 @Service
+@Slf4j
 @AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
 

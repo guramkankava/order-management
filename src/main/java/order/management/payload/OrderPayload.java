@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import order.management.model.OrderStatus;
@@ -20,6 +21,7 @@ import order.management.validation.StartsWith;
 
 @JsonIgnoreProperties(value = {"phoneNumberBlank", "personalNumberBlank", "accountNumberBlank" })
 @Commission
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

@@ -16,7 +16,7 @@ import javax.validation.Payload;
 @Target(TYPE)
 public @interface Commission {
 
-    String message() default "Min commision is 50 GEL or 1 percent of amount";
+    String message() default "Min commision is 0.50 GEL or 1 percent of amount";
 
     Class<?>[] groups() default {};
 

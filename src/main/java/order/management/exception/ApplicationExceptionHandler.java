@@ -42,5 +42,6 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
                         status(apiException.getStatus()).
                         message(messageSource.getMessage(apiException.getMessageCode(), apiException.getParams(), LocaleContextHolder.getLocale())).
                         build());
-        }
+    }
+
 }
