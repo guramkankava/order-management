@@ -4,17 +4,12 @@ services:
   mongodb:
     image: mongo:latest
     container_name: "mongodb"
-    restart: always
-    ports:
-      - 27017:27017
-    network_mode : host
-
   app:
     image: order-management-img
     depends_on:
       - mongodb
-    network_mode: "host"
-    hostname: localhost
     restart: always
     ports:
       - 8080:8080
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://mongodb/order-management
